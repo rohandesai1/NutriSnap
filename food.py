@@ -69,9 +69,7 @@ def _tifa_definitions():
 
 class _Constants(object):
     '''
-    Global singleton object to hide some of the constants; some IDEs reveal
-    internal module details very aggressively, and there's no other way
-    to hide stuff.
+    Hide constants
     '''
 
 class DatasetException(Exception):
