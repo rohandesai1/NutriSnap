@@ -1,5 +1,5 @@
 import food
-import random, os, tensorflow as tf, numpy as np, pandas as pd, cv2, matplotlib.pyplot as plt
+import tensorflow as tf, numpy as np, pandas as pd, cv2
 class CalorieCounter():
     def __init__(self):
         pass
