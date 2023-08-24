@@ -1,2 +1,2 @@
-# CalorieCounter
+# NutriSnap
  

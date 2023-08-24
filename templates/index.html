@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block head %} 
+
+{% endblock %}
+
+
+{% block body %}
+<form action="/" method="post" enctype="multipart/form-data">
+    <input type="file" name="image">
+    <input type="submit" value="Upload">
+  </form>
+<h2>{{ heading1 }}</h2>
+
+{{ nutritionInfo1 }}
+
+<h2>{{ heading2 }}</h2>
+
+{{ nutritionInfo2 }}
+
+<h2>{{ heading3 }}</h2>
+
+{{ nutritionInfo3 }}
+
+<h2>{{ heading4 }}</h2>
+
+{{ nutritionInfo4 }}
+
+{% endblock %}
