@@ -21,7 +21,7 @@ class CalorieCounter():
         if model == 1:
             w, h = 256, 256
             self.model = tf.keras.models.load_model("assets")
-            df_train = pd.read_csv("train_img.csv")
+            df_train = pd.read_csv("Training_Model/Model1/train_img.csv")
             df_train.drop_duplicates(subset = ["ClassName"])["ImageId"]
             self.label_names = np.asarray(sorted(df_train["ClassName"].unique()))
             
