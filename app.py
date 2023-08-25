@@ -18,6 +18,7 @@ def index():
         image = np.array(image)[:, :, :3]
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         cv2.imwrite("img.png", image)
+        """
         prediction = counter.food_prediction(image, 2)
         info = counter.food_to_nutrition(prediction)
         info = counter.interpret_nutrition_info(info)
@@ -25,9 +26,10 @@ def index():
         prediction2 = counter.food_prediction(image, 1)
         info2 = counter.food_to_nutrition(prediction2)
         info2 = counter.interpret_nutrition_info(info2)
-        info = info + info2
+        info = info2
+        #info = info + info2
         print(info)
-        """
+        
         z = 0
         for item in info:
             tag1, val1 = item[0]
