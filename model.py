@@ -14,6 +14,7 @@ class CalorieCounter():
 
 
     def food_prediction(self, image, model):
+        self.model_num = model
         if type(image) == str:
             image = cv2.imread(image)
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
@@ -29,15 +30,16 @@ class CalorieCounter():
         else:
             w, h = 100, 100
             self.model = tf.keras.models.load_model("assets2")
-            with open("labels.txt", "r") as file:
+            with open("Training_Model/Model2/labels.txt", "r") as file:
                 self.label_names = file.read().split("\n")
 
-        
-        
-        
         image = cv2.resize(image, (w,h))
         predictions = self.model.predict(image.reshape(1, w, h, 3, 1))[0]
         chosen = predictions.argmax()
+        confidence = predictions[chosen]
+        print(confidence)
+        if confidence < 0.1:
+            return ["thisisnotfood"]
         print(self.label_names[chosen])
         if model == 1:
             return self.label_names[chosen].split("-")
@@ -57,7 +59,11 @@ class CalorieCounter():
                 if item.lower() == fd["Category"].lower():
                     matches += 2
                 if item.lower() in fd["Description"].lower():
-                    matches += 1
+                    if self.model_num == 1:
+                        matches += 2/len(fd["Description"].split(" ")) # discourage long descriptions for model1 because model1 is trained on singular foods
+                    else:
+                        matches += 1
+            
                         
             if matches > maxMatches:
                 maxMatches = int(matches)
@@ -72,8 +78,10 @@ class CalorieCounter():
         allInfo = []
      
         for prediction in predictions:
-            
-            description = prediction["Description"]
+            try:
+                description = prediction["Description"]
+            except TypeError:
+                return "Not Found"
             prediction = prediction["Data"]
             fats = prediction["Fat"]
             carbs = prediction["Carbohydrate"]

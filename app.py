@@ -23,10 +23,12 @@ def index():
         info = counter.food_to_nutrition(prediction)
         info = counter.interpret_nutrition_info(info)
         """
-        prediction2 = counter.food_prediction(image, 1)
+        prediction2 = counter.food_prediction(image, 2)
         info2 = counter.food_to_nutrition(prediction2)
         info2 = counter.interpret_nutrition_info(info2)
         info = info2
+        if info == "Not Found":
+            return render_template("index.html", heading1 = (f"{[(val) for val in prediction2]} NOT FOUND IN NSDA DATABASE."))
         #info = info + info2
         print(info)
         
@@ -45,9 +47,11 @@ def index():
                     nutrition = [[f"{tag}: {val}"], [], [], []]
             z += 1
 
+        serving = "Serving Size: 100 grams, Source: USDA"
+
         
 
-    return render_template('index.html', heading1 = headers[0], heading2 = headers[1],  nutritionInfo1 = " ".join(nutrition[0]), nutritionInfo2 = " ".join(nutrition[1]))
+    return render_template('index.html', heading1 = headers[0], heading2 = headers[1],  nutritionInfo1 = " ".join(nutrition[0]), nutritionInfo2 = " ".join(nutrition[1]), servingSize = serving)
 
 
 if __name__ == "__main__":
