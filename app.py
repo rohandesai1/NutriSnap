@@ -23,7 +23,7 @@ def index():
         info = counter.food_to_nutrition(prediction)
         info = counter.interpret_nutrition_info(info)
         """
-        prediction2 = counter.food_prediction(image, 2)
+        prediction2 = counter.food_prediction(image, 1)
         info2 = counter.food_to_nutrition(prediction2)
         info2 = counter.interpret_nutrition_info(info2)
         info = info2
