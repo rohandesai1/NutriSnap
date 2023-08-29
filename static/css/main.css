@@ -1,4 +1,119 @@
+@keyframes slideup {
+    from {
+        transform: translateY(100%);
+      }
+    
+      to {
+        transform: translateY(0%);
+      }
+
+}
+@font-face {
+    font-family: "DM Sans";
+    src: url("./dmsans.ttf");
+}
+input[type="file"] {
+    display: none;
+}
+html {
+    color: #000;
+    display: flex;
+    width: 100%;
+    animation-name: slideup;
+    animation-duration: 0.7s;
+    animation-delay: 0.1s;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+h2 {
+    margin: 2px;
+}
 body {
+    min-width: 304px;
+    color: #000;
     margin: 0;
-    font-family: sans-serif;
+    font-family: "DM Sans";
+    margin: 5px;
+    padding: 5px;
+    background-color: #fff;
+}
+.content{
+    color: #000;
+    margin: 0;
+    font-family: "DM Sans";
+    width: 302px;
+    margin: 5px;
+    background-color: #f1f1f1;
+    border-radius: 15px;
+    padding-top: 0.1px;
+    padding-bottom: 0.1px;
+}
+.card {
+    color: #000;
+    font-family: "DM Sans";
+    border-radius: 15px;
+    width: 282px;
+    height: 240px; /*change to 400*/
+    background-color: #e9e9e9;
+    margin: 5px;
+    display: block;
+    padding: 5px;
+    transition: 0.5s;
+}
+.card:active {
+    color: #000;
+    font-family: "DM Sans";
+    border-radius: 15px;
+    width: 282px;
+    height: 240px; /*change to 400*/
+    background-color: #e0e0e0;
+    margin: 5px;
+    display: block;
+    padding: 5px;
+    transition: 0.5s;
+}
+.section {
+    color: #000;
+    font-family: "DM Sans";
+    border-radius: 10px;
+    height: 30px;
+    padding: 10px;
+    margin: 2px;
+    border: 0;
+    background-color: #e0e0e0;
+    width: 250px;
+    transition: 0.5s;
+    text-align: center;
+}
+.section:active {
+    color: #000;
+    font-family: "DM Sans";
+    border-radius: 10px;
+    height: 30px;
+    padding: 10px;
+    margin: 2px;
+    border: 0;
+    background-color: #d9d9d9;
+    width: 250px;
+    transition: 0.5s;
+    text-align: center;
+}
+.surround {
+    color: #000;
+    font-family: "DM Sans";
+    width: 282px;
+    padding: 4px;
+    background-color: #e9e9e9;
+    margin: 5px;
+    height: 85px;
+    border-radius: 15px;
+}
+.centerer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+button {
+    border: 0;
 }

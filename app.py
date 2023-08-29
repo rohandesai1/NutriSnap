@@ -12,7 +12,10 @@ def index():
         info = ""
         headers = ["",""]
         nutrition = [[""],[""]]
+        headers = ["To see information, upload a PNG or JPG image of food first or take a picture from your camera", "No prediction was made"]
+        typeOfCard = ["NO FILE CHOSEN", ""]
     if request.method == "POST":
+        typeOfCard = ["PREDICTION 1", "PREDICTION 2"]
         counter = CalorieCounter()
         image = Image.open(request.files["image"].stream)
         image = np.array(image)[:, :, :3]
@@ -46,12 +49,14 @@ def index():
                 except UnboundLocalError:
                     nutrition = [[f"{tag}: {val}"], [], [], []]
             z += 1
+        typeOfCard = ["PREDICTION 1", "PREDICTION 2"]
+
 
         serving = "Serving Size: 100 grams, Source: USDA"
 
         
 
-    return render_template('index.html', heading1 = headers[0], heading2 = headers[1],  nutritionInfo1 = " ".join(nutrition[0]), nutritionInfo2 = " ".join(nutrition[1]), servingSize = serving)
+    return render_template('index.html', typeOfCard1 = typeOfCard[0], typeOfCard2 = typeOfCard[1], heading1 = headers[0], heading2 = headers[1],  nutritionInfo1 = " ".join(nutrition[0]), nutritionInfo2 = " ".join(nutrition[1]))
 
 
 if __name__ == "__main__":

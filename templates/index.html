@@ -1,29 +1,48 @@
-{% extends "base.html" %}
-
+<!--TO CHANGE FROM LIGHT MODE TO DARK MODE:
+Light Mode: base.html
+Dark Mode: base-dark.html
+Change Line 4 and keep the quotes. -->
+{% extends "base-dark.html" %}
 {% block head %} 
-
 {% endblock %}
-
-
 {% block body %}
-<form action="/" method="post" enctype="multipart/form-data">
-    <input type="file" name="image">
-    <input type="submit" value="Upload">
-  </form>
-<h2>{{ heading1 }}</h2>
-
-{{ nutritionInfo1 }}
-
-<h2>{{ heading2 }}</h2>
-
-{{ nutritionInfo2 }}
-
-<h2>{{ heading3 }}</h2>
-
-{{ nutritionInfo3 }}
-
-<h2>{{ heading4 }}</h2>
-
-{{ nutritionInfo4 }}
-
-{% endblock %}
+  <html>
+    <head>
+      <title>NutriSnap</title>
+      <!--link rel="icon" type="image/x-icon" href="/templates/icon.png">
+      put icon - icon.png into templates folder for browser tab favicon and then uncomment and delete this line-->
+    </head>
+    <body>
+      <div class=centerer>
+        <div class="content">
+          <div class=surround>
+            <form action="/" method="post" enctype="multipart/form-data">
+              <label class="custom-file-upload">
+                <input class=section style="width: 258px; height: 25px;" type="file" name="image" accept=".jpg, .png"/>
+                <div class=section style="width: 258px; height: 25px;"> Choose a File to Begin</div> 
+            </label>
+              <input class="section"style="width: 278px; height: 30px;" type="submit" value="Submit File">
+            </form>
+          </div>
+          <div class=card>
+            {{typeOfCard1}}
+            <h2>
+              {{ heading1 }}
+            </h2>
+            {{ nutritionInfo1 }}
+          </div>
+          <div class="card">
+            {{typeOfCard2}}
+            <h2>
+              {{ heading2 }}
+            </h2>
+            {{ nutritionInfo2 }}
+          </div>
+          {% endblock %}
+        </div>
+      </div>
+      <div class="material-symbols-outlined">
+        upload_file
+      </div>
+    </body>
+  </html>
