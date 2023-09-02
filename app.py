@@ -12,6 +12,7 @@ def index():
         info = ""
         headers = ["",""]
         nutrition = [[""],[""]]
+        serving = ""
     if request.method == "POST":
         counter = CalorieCounter()
         image = Image.open(request.files["image"].stream)
