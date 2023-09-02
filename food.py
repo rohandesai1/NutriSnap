@@ -86,8 +86,7 @@ if not _os.access(_Constants._DATABASE_NAME, _os.F_OK):
 elif not _os.access(_Constants._DATABASE_NAME, _os.R_OK):
     raise DatasetException(("Error! Could not read the \"{0}\" file. "
                             "Make sure that it readable by changing its "
-                            "permissions. You may need to get help from "
-                            "your instructor."
+                            "permissions."
                             ).format(_Constants._DATABASE_NAME, __name__))
 
 
