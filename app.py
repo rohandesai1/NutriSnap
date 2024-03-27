@@ -17,25 +17,22 @@ def index():
         prediction = ""
     if request.method == "POST":
         counter = CalorieCounter()
+        modelNumber = 1
         try:
             image = Image.open(request.files["image"].stream)
         except:
             return render_template("index.html", heading1="File type not supported", prediction="")
         image = np.array(image)[:, :, :3]
-        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+
+        #image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         #cv2.imwrite("img" + "".join([random.choice("abcdefghijklmnopqrstuvwxyz123456789") for i in range(10)]) + ".png", image)
 
-        """
-        prediction = counter.food_prediction(image, 2)
+
+        prediction = counter.food_prediction(image, modelNumber)
+        recipes = get_recipe(prediction)
         info = counter.food_to_nutrition(prediction)
         info = counter.interpret_nutrition_info(info)
-        """
 
-        prediction = counter.food_prediction(image, 1)
-        recipes = get_recipe(prediction)
-        info2 = counter.food_to_nutrition(prediction)
-        info2 = counter.interpret_nutrition_info(info2)
-        info = info2
 
         if info == "Not Found":
 
