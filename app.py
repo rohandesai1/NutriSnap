@@ -10,7 +10,7 @@ app = Flask(__name__)
 def index():
     if request.method == "GET":
         info = ""
-        headers = ["",""]
+        headers = [":",":"]
         nutrition = [[""],[""]]
         serving = ""
         recipes = ""
