@@ -15,9 +15,11 @@ class CalorieCounter():
 
     def food_prediction(self, image, model):
         self.model_num = model
+        """
         if type(image) == str:
-            image = cv2.imread(image)
+           image = cv2.imread(image)
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+        """
 
         if model == 1:
             w, h = 256, 256
@@ -95,11 +97,11 @@ class CalorieCounter():
             sat = fats["Saturated Fat"]
             calories = 4 * (carbs + protein) + 9 * (mono + poly + sat)
 
-            nutrition = [description, calories, carbs, cholestrol, fiber, protein, sodium, sugar, mono, poly, sat]
+            nutrition = [description, calories, carbs, protein, fiber, cholestrol, sodium, sugar, mono, poly, sat]
             nutrition = [description] + [round((val), 1) for val in nutrition[1:]]
-            tags = ["Description", "Calories", "Carbs", "Cholestrol", "Fiber", "Protein", "Sodium", "Sugar", "Monosaturated Fat", "Polysaturated Fat", "Saturated Fat"]
+            tags = ["Description", "Calories", "Carbs", "Protein", "Fiber", "Cholestrol", "Sodium", "Sugar", "Monosaturated Fat", "Polysaturated Fat", "Saturated Fat"]
             #tags = [(list(prediction.keys()))[(list(prediction.values())).index(val)] for val in nutrition]
-            info = [f"{tag}: {val}" for tag,val in list(zip(tags, nutrition))]
+            info = [f"{tag} {val}" for tag,val in list(zip(tags, nutrition))]
             info = list(zip(tags, nutrition))
 
             allInfo.append(info)
