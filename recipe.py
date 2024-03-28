@@ -12,15 +12,22 @@ def get_recipe(ingredients):
         r = rq.get(link)
         c = r.content
         s = bs(c, "html.parser")
+
         boxes = []
+        allLinks = []
+
         baseId = "mntl-card-list-items_"
         extra = "1-0"
         for i in range(24):
-            boxes.append(s.find("a", {"id" : baseId + extra}))
+            currBox = s.find("a", {"id" : baseId + extra})
+            boxes.append(currBox)
+            allLinks.append(currBox["href"])
             extra = str(i + 2) + "-0"
+            
+        filteredLinks = []
         filteredBoxes = []
         ratings = []
-        for box in boxes:
+        for i, box in enumerate(boxes):
             if box.find("div", {"class" : "mntl-recipe-card-meta__rating-count-number"}) != None:
                 fullStars = len(box.find_all("svg", {"class" : "icon-star"}))
                 halfStars = (len(box.find_all("svg", {"class" : "icon-star-half"})))
@@ -30,6 +37,8 @@ def get_recipe(ingredients):
                 score = (numberOfReviews/50) + stars
                 ratings.append(score)
                 filteredBoxes.append(box)
+                filteredLinks.append(allLinks[i])
+
         
 
         boxes = filteredBoxes
@@ -40,15 +49,12 @@ def get_recipe(ingredients):
 
         top3 = [boxes[i] for i in top3_indexes]
         
-
         recipes = []
+
         for box in top3:
             recipes.append(box.find("span", {"class" : "card__title"}).text)
-        links = []
-        for recipe in recipes:
-            links.append(base_link + recipe.replace(" ", "+"))
 
-        return list(zip(recipes, links))
+        return list(zip(recipes, [filteredLinks[i] for i in top3_indexes]))
     except:
         return []
 
