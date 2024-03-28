@@ -17,7 +17,7 @@ def index():
         prediction = ""
     if request.method == "POST":
         counter = CalorieCounter()
-        modelNumber = 1
+        modelNumber = int(request.form['modelChoice'])
         try:
             image = Image.open(request.files["image"].stream)
         except:
@@ -36,7 +36,7 @@ def index():
 
         if info == "Not Found":
 
-            return render_template("index.html", heading2 = (f"Detected: {' '.join(prediction)}. Not found in USDA database of food nutrition."), prediction="")
+            return render_template("index.html", heading2 = (f"Detected: {' '.join(prediction)}. Not found in USDA database of food nutrition."), prediction="", recipe=recipes)
         #info = info + info2
         print(info)
         

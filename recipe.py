@@ -22,7 +22,6 @@ def get_recipe(ingredients):
         ratings = []
         for box in boxes:
             if box.find("div", {"class" : "mntl-recipe-card-meta__rating-count-number"}) != None:
-                print("NOT NONE")
                 fullStars = len(box.find_all("svg", {"class" : "icon-star"}))
                 halfStars = (len(box.find_all("svg", {"class" : "icon-star-half"})))
                 stars = fullStars + halfStars/2

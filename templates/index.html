@@ -9,28 +9,44 @@
 <h2 class="glowy-heading">NutriSnap</h2>
 
 <div class="center">
+  
+  <h3>Choose a model</h3>
   <form action="/" method="post" enctype="multipart/form-data">
+    <div>
+        <input type="radio" id="1" name="modelChoice" value="1" checked>
+        <label for="1">Specific (ex. Banana, Chicken)</label>
+    </div>
 
-      <input id="file-upload" type="file" name="image">
+    <div>
+        <input type="radio" id="2" name="modelChoice" value="2">
+        <label for="2">General (ex. Pizza, Dumplings)</label>
+    </div>
+    <br>
 
-      <label for="submit-upload" class="custom-submit-upload">
-        Submit
-      </label>
-      <input id="submit-upload" type="submit" name="image">
-    </form>
+    <h3>Select your image</h3>
+
+    <div>
+        <input id="file-upload" type="file" name="image">
+        <label for="submit-upload" class="custom-submit-upload">Submit</label>
+        <input id="submit-upload" type="submit">
+    </div>
+  </form>
+
+
+  <div class="border"></div>
 
   {% if prediction != "" %} 
     <h2 style="margin-top: 3%; margin-bottom: 1%; font-size: 25px;">Macros of a <span class="glowy-heading-small" style="display: inline; font-size: 26px;">{{ prediction }}</span> </h2> 
   {% endif %}
-  <h2 class="glowy-heading-small">{{ heading1 }}</h2>
+  <h2 class="heading-small">{{ heading1 }}</h2>
 
   {{ nutritionInfo1 }}
 
-  <h2 class="glowy-heading-small">{{ heading2 }}</h2>
+  <h2 class="heading-small">{{ heading2 }}</h2>
 
   {{ nutritionInfo2 }}
 
-  <h2 class="glowy-heading-small">{{ heading3 }}</h2>
+  <h2 class="heading-small">{{ heading3 }}</h2>
 
   {{ nutritionInfo3 }}
 
@@ -42,7 +58,7 @@
 
 
   {% if recipe %}
-    <h2 class="glowy-heading-small" style="margin-top: 10%;">Recipes:</h2> 
+    <h2 class="glowy-heading-small" style="margin-top: 5%;">Recipes:</h2> 
   {% endif %}
 
   {% for rec in recipe %}

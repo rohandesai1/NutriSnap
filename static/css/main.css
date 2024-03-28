@@ -34,6 +34,27 @@ body {
 }
 
   
+.heading-small{
+
+    text-align: center;
+    text-shadow: 0px 1px 41px rgba(0, 224, 255, 0.5);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    background: linear-gradient(270deg, #409cf1 30%, #0085ff 70%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.border {
+    border: 1px solid #000; 
+    height: 0px;
+    margin-top: 20px; 
+    margin-bottom: 20px;
+}
+
 .center{
     text-align: center;
 }
