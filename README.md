@@ -6,7 +6,22 @@ Welcome to the Food Nutrition Detector! This project offers an effective way for
 
 https://github.com/rohandesai1/NutriSnap/assets/126644574/904557a6-31f1-4a77-93f3-0220cc6269b9
 
-
+## **Usage**
+  
+  To run the core app, you must do the following:
+  
+  1. Enter this command to clone the repository
+  <br></br>
+  ```git clone https://github.com/rohandesai1/NutriSnap```
+  <br></br>
+  2. Insall the required dependencies
+  <br></br>
+  ```pip install -r requirements.txt```
+  <br></br>
+  3. Run the Program.
+  <br></br>
+  ```python3 app.py``` and open ```localhost:8000```
+  
 
 - FULL README COMING SOON. RUN APP.PY TO RUN THE FLASK APP 
 - TRAINING_MODEL CONTAINS ALL FILES USED TO TRAIN THE MODELS. 
