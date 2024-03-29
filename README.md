@@ -23,11 +23,10 @@ https://github.com/rohandesai1/NutriSnap/assets/126644574/904557a6-31f1-4a77-93f
   ```python3 app.py``` and open ```localhost:8000```
   
 
-- FULL README COMING SOON. RUN APP.PY TO RUN THE FLASK APP 
-- TRAINING_MODEL CONTAINS ALL FILES USED TO TRAIN THE MODELS. 
-- ASSETS AND ASSETS2 ARE THE 2 MODELS THAT WERE TRAINED (TensorFlow MODEL.SAVE OUTPUT).
-- DATASET #1 CAN BE FOUND [HERE](https://www.kaggle.com/datasets/bjoernjostein/food-classification)
-- DATSET #2 CAN BE FOUND [HERE](https://www.kaggle.com/datasets/kmader/food41)
+The Training_Model folder contains all files (except the datasets) used to train the models. The dependencies used to train the model are not listed in the requirements.txt file. 
+Assets and Assets2 are the 2 models that were trained.
+Dataset #1 can be found [HERE](https://www.kaggle.com/datasets/bjoernjostein/food-classification)
+Dataset #2 can be found [HERE](https://www.kaggle.com/datasets/kmader/food41)
 
 
 ## Features
