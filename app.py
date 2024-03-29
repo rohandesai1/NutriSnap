@@ -1,6 +1,5 @@
 from flask import Flask, render_template, url_for, request
-import numpy as np, random
-import cv2
+import numpy as np
 from PIL import Image
 from model import CalorieCounter
 from recipe import get_recipe
